@@ -344,5 +344,8 @@ ASALocalRun/
 /release/hokreg.pdb
 /release/hokreg.exe
 /release/GeneralProperies.dll
+.vs
+/.vs
+
 
 

@@ -29,6 +29,7 @@ namespace cwall
         {
             InitializeComponent();
 
+
             purposes = Purpose.LoadFromFile();
             payments = Payment.LoadFromFile();
         }
