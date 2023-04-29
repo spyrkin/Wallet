@@ -1,4 +1,5 @@
-﻿using System;
+﻿using cwall.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,16 @@ namespace cwall
     /// </summary>
     public partial class MainWindow : Window
     {
+        public List<Payment> payments;
+        public List<Purpose> purposes;
+
+        public DateTime date;
         public MainWindow()
         {
             InitializeComponent();
+
+            purposes = Purpose.LoadFromFile();
+            payments = Payment.LoadFromFile();
         }
     }
 }
