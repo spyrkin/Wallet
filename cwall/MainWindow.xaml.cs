@@ -1,4 +1,5 @@
 ﻿using cwall.Models;
+using MahApps.Metro.Controls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +20,7 @@ namespace cwall
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : MetroWindow
     {
         public List<Payment> payments;
         public List<Purpose> purposes;
@@ -32,6 +33,11 @@ namespace cwall
 
             purposes = Purpose.LoadFromFile();
             payments = Payment.LoadFromFile();
+        }
+
+        private void addNewPurpose(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

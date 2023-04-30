@@ -1,12 +1,13 @@
-﻿<Window x:Class="cwall.MainWindow"
+﻿<mah:MetroWindow x:Class="cwall.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:cwall"
         mc:Ignorable="d"
-        Title="Копилка" Height="450" Width="600" WindowStartupLocation="CenterScreen" Background="AliceBlue" ResizeMode="NoResize">
+        xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        Title="Копилка" Height="450" Width="600" WindowStartupLocation="CenterScreen" Background="White" ResizeMode="NoResize" WindowTitleBrush="Black" >
     <Canvas>
-        
+        <Button Content="new purpose" Click="addNewPurpose" Background="SteelBlue" Width="91" Height="40" Canvas.Left="10" Canvas.Top="358" Foreground="Black" BorderBrush="Black"/>
     </Canvas>
-</Window>
+</mah:MetroWindow>
