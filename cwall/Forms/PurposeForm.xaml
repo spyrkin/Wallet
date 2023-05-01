@@ -18,11 +18,11 @@
 
 
             <Label Margin="0 10 0 0" Content="FEAT" HorizontalContentAlignment="Center" />
-            <ComboBox >
-                <ComboBoxItem Content="RUB"></ComboBoxItem>
-                <ComboBoxItem Content="DOL"></ComboBoxItem>
-                <ComboBoxItem Content="EURO"></ComboBoxItem>
-                <ComboBoxItem Content="LAR"></ComboBoxItem>
+            <ComboBox x:Name="cur" HorizontalContentAlignment="Center">
+                <ComboBoxItem HorizontalContentAlignment="Center" Content="RUB"></ComboBoxItem>
+                <ComboBoxItem HorizontalContentAlignment="Center" Content="DOL"></ComboBoxItem>
+                <ComboBoxItem HorizontalContentAlignment="Center" Content="EURO"></ComboBoxItem>
+                <ComboBoxItem HorizontalContentAlignment="Center" Content="LAR"></ComboBoxItem>
             </ComboBox>
 
             <Button Margin="0 80 0 0" Content="create" Click="createNew" Background="SteelBlue" Width="91" Height="40" Canvas.Left="10" Canvas.Top="358" Foreground="Black" BorderBrush="Black"/>

@@ -32,7 +32,49 @@ namespace cwall.Forms
 
         private void createNew(object sender, RoutedEventArgs e)
         {
+            bool val = validate();
+            if (val == false)
+            {
+                return;
+            }
 
+        }
+
+        public bool validate()
+        {
+            string name = cname.Text;
+            if (String.IsNullOrEmpty(name))
+            {
+                MessageBox.Show("Не пустое имя");
+                return false;
+            }
+
+
+            string vpice = cprice.Text;
+            if (String.IsNullOrEmpty(vpice))
+            {
+                MessageBox.Show("Не пустая цена");
+                return false;
+
+            }
+
+            double number;
+            if (!Double.TryParse(vpice, out number))
+            {
+                MessageBox.Show("Цена должна быть валидной");
+                return false;
+
+            }
+
+
+            var si = cur.SelectedItem;
+            if (si == null)
+            {
+                MessageBox.Show("Выберите валюту");
+                return false;
+
+            }
+            return true;
         }
     }
 }
