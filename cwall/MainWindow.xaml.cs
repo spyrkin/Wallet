@@ -1,4 +1,5 @@
-﻿using cwall.Models;
+﻿using cwall.Forms;
+using cwall.Models;
 using MahApps.Metro.Controls;
 using System;
 using System.Collections.Generic;
@@ -37,7 +38,8 @@ namespace cwall
 
         private void addNewPurpose(object sender, RoutedEventArgs e)
         {
-
+            var form = new PurposeForm(purposes);
+            form.ShowDialog();
         }
     }
 }

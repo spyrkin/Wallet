@@ -1,4 +1,6 @@
-﻿using System;
+﻿using cwall.Models;
+using MahApps.Metro.Controls;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,11 +19,20 @@ namespace cwall.Forms
     /// <summary>
     /// Логика взаимодействия для PurposeForm.xaml
     /// </summary>
-    public partial class PurposeForm : Window
+    public partial class PurposeForm : MetroWindow
     {
-        public PurposeForm()
+        public List<Purpose> purposes;
+
+        //создание новой цели
+        public PurposeForm(List<Purpose> purposes)
         {
+            this.purposes = purposes;
             InitializeComponent();
+        }
+
+        private void createNew(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

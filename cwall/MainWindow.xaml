@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:cwall"
         mc:Ignorable="d"
         xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
-        Title="Копилка" Height="450" Width="600" WindowStartupLocation="CenterScreen" Background="White" ResizeMode="NoResize" WindowTitleBrush="Black" >
+        Title="Копилка" Height="450" Width="600" WindowStartupLocation="CenterScreen" Background="White" ResizeMode="NoResize" WindowTitleBrush="Black" Icon="wallet_money_icon_231405.ico" >
     <Canvas>
         <Button Content="new purpose" Click="addNewPurpose" Background="SteelBlue" Width="91" Height="40" Canvas.Left="10" Canvas.Top="358" Foreground="Black" BorderBrush="Black"/>
     </Canvas>

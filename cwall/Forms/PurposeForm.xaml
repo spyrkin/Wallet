@@ -1,12 +1,32 @@
-﻿<Window x:Class="cwall.Forms.PurposeForm"
+﻿<mah:MetroWindow x:Class="cwall.Forms.PurposeForm"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:cwall.Forms"
         mc:Ignorable="d"
-        Title="Цель" Height="450" Width="800">
+        xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        Title="NEW" Height="450" Width="600" WindowStartupLocation="CenterScreen" Background="White" ResizeMode="NoResize" WindowTitleBrush="Black" >
     <Canvas>
-        
+        <StackPanel Orientation="Vertical" Canvas.Left="154" Canvas.Top="108">
+            <Label Content="NAME" HorizontalContentAlignment="Center" />
+            <TextBox x:Name="cname" Background="LightYellow"  Width="291" HorizontalContentAlignment="Center" />
+
+
+            <Label Margin="0 10 0 0" Content="Price" HorizontalContentAlignment="Center" />
+            <TextBox x:Name="cprice" Background="LightYellow"  Width="291" HorizontalContentAlignment="Center" />
+
+
+            <Label Margin="0 10 0 0" Content="FEAT" HorizontalContentAlignment="Center" />
+            <ComboBox >
+                <ComboBoxItem Content="RUB"></ComboBoxItem>
+                <ComboBoxItem Content="DOL"></ComboBoxItem>
+                <ComboBoxItem Content="EURO"></ComboBoxItem>
+                <ComboBoxItem Content="LAR"></ComboBoxItem>
+            </ComboBox>
+
+            <Button Margin="0 80 0 0" Content="create" Click="createNew" Background="SteelBlue" Width="91" Height="40" Canvas.Left="10" Canvas.Top="358" Foreground="Black" BorderBrush="Black"/>
+
+        </StackPanel>
     </Canvas>
-</Window>
+</mah:MetroWindow>
