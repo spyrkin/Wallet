@@ -22,7 +22,8 @@ namespace cwall.Forms
     public partial class PurposeForm : MetroWindow
     {
         public List<Purpose> purposes;
-
+        public Purpose newPurpose = null;
+        public Random rand = new Random();
         //создание новой цели
         public PurposeForm(List<Purpose> purposes)
         {
@@ -38,6 +39,27 @@ namespace cwall.Forms
                 return;
             }
 
+            newPurpose = new Purpose();
+            newPurpose.Id = getUniqId();
+            newPurpose.Name = cname.Text;
+            newPurpose.Description = cdesk.Text;
+            newPurpose.valute = (cur.SelectedItem as ComboBoxItem).Content.ToString();
+            newPurpose.Price = Convert.ToDouble(cprice.Text);
+            newPurpose.Date = DateTime.Now;
+            DialogResult = true;
+        }
+
+        public int getUniqId()
+        {
+            int r = rand.Next(10000);
+            var obj = purposes.FirstOrDefault(o => o.Id == r);
+            if (obj!= null)
+            {
+                MessageBox.Show("Фига себе " + r);
+                return getUniqId();
+            }
+
+            return r;
         }
 
         public bool validate()

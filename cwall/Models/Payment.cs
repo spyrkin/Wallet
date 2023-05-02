@@ -16,7 +16,6 @@ namespace cwall.Models
 
         public int Id { get; set; }
         public string Type { get; set; }
-        public string Currensy { get; set; }
         public string valute { get; set; }
         public double Price { get; set; }
         public DateTime Date { get; set; }

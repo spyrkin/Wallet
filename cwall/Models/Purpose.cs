@@ -16,7 +16,6 @@ namespace cwall.Models
 
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Currensy { get; set; }
         public string valute { get; set; }
         public double Price { get; set; }
         public DateTime Date { get; set; }
@@ -32,6 +31,13 @@ namespace cwall.Models
             return path + @"\db\db-" + _NAME + "";
         }
 
+
+        public static String LogfileName(string name)
+        {
+            String path = new System.IO.FileInfo(Assembly.GetEntryAssembly().Location).DirectoryName;
+            return path + @"\db\db-" + name + "";
+        }
+
         public static String LogFileDir()
         {
             return new System.IO.FileInfo(Assembly.GetEntryAssembly().Location).DirectoryName + @"\db";
@@ -41,6 +47,7 @@ namespace cwall.Models
         {
             lock (lofile)
             {
+                string name = _NAME;
                 try
                 {
                     String dir_name = LogFileDir();
@@ -51,11 +58,12 @@ namespace cwall.Models
                 }
                 catch (Exception ex)
                 {
+                    MessageBox.Show(ex.Message);
                 }
                 try
                 {
                     using (Stream serializationStream =
-                        new FileStream(LogfileName(), FileMode.Create, FileAccess.Write))
+                        new FileStream(LogfileName(name), FileMode.Create, FileAccess.Write))
                     {
                         BinaryFormatter formatter = new BinaryFormatter();
                         formatter.Serialize(serializationStream, accounts);

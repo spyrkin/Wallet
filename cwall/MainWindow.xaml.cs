@@ -30,16 +30,26 @@ namespace cwall
         public MainWindow()
         {
             InitializeComponent();
-
-
-            purposes = Purpose.LoadFromFile();
-            payments = Payment.LoadFromFile();
+            reload();
         }
 
         private void addNewPurpose(object sender, RoutedEventArgs e)
         {
             var form = new PurposeForm(purposes);
             form.ShowDialog();
+            if (form.DialogResult == true)
+            {
+                purposes.Add(form.newPurpose);
+                Purpose.SaveToFile(purposes);
+                reload();
+            }
+        }
+
+
+        public void reload()
+        {
+            purposes = Purpose.LoadFromFile();
+            payments = Payment.LoadFromFile();
         }
     }
 }
