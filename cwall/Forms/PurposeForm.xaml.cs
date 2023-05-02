@@ -49,6 +49,13 @@ namespace cwall.Forms
                 return false;
             }
 
+            string desc = cdesk.Text;
+            if (String.IsNullOrEmpty(desc))
+            {
+                MessageBox.Show("Не пустое описание");
+                return false;
+            }
+
 
             string vpice = cprice.Text;
             if (String.IsNullOrEmpty(vpice))
