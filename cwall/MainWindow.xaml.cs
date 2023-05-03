@@ -25,6 +25,7 @@ namespace cwall
     {
         public List<Payment> payments;
         public List<Purpose> purposes;
+        public Purpose current;
 
         public DateTime date;
         public MainWindow()
@@ -45,11 +46,34 @@ namespace cwall
             }
         }
 
+    
+
 
         public void reload()
         {
             purposes = Purpose.LoadFromFile();
             payments = Payment.LoadFromFile();
+            setCurrentPurlose();
+            draw();
+        }
+
+        public void draw()
+        {
+            lpurs.Text = current.Name;
+            ldesc.Text = current.Description;
+            lprice.Content = current.Price;
+            lost.Content = current.Price;
+            lpoc.Content = "100%";
+
+        }
+
+        public void setCurrentPurlose()
+        {
+            purposes = purposes.OrderBy(o => o.Date).ToList();
+            if (purposes.Count() > 0)
+            {
+                current = purposes.First();
+            }
         }
     }
 }
