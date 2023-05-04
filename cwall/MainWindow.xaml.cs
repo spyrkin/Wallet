@@ -75,5 +75,13 @@ namespace cwall
                 current = purposes.First();
             }
         }
+
+
+        //заплатить
+        private void addPayment(object sender, RoutedEventArgs e)
+        {
+            var form = new PaymentForm(current);
+            form.ShowDialog();
+        }
     }
 }

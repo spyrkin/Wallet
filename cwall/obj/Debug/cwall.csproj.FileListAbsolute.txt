@@ -134,3 +134,5 @@ C:\Users\Programmist\Desktop\cwall\release\cwall.exe.config
 C:\Users\Programmist\Desktop\cwall\release\cwall.exe
 C:\Users\Programmist\Desktop\cwall\release\cwall.pdb
 C:\Users\Programmist\Desktop\cwall\cwall\obj\Debug\cwall.csprojAssemblyReference.cache
+C:\Users\Programmist\Desktop\cwall\cwall\obj\Debug\Forms\PaymentForm.g.cs
+C:\Users\Programmist\Desktop\cwall\cwall\obj\Debug\Forms\PaymentForm.baml
