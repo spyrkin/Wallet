@@ -17,8 +17,10 @@
             <Label Margin="0 10 0 0" Content="Price" HorizontalContentAlignment="Center" />
             <TextBox x:Name="cprice" Background="LightYellow"  Width="291" HorizontalContentAlignment="Center" />
 
-            <Button Margin="0 80 0 0" Content="Pay" Click="createNew" Background="SteelBlue" Width="91" Height="40" Canvas.Left="10" Canvas.Top="358" Foreground="Black" BorderBrush="Black"/>
+            <Button Margin="0 80 0 0" IsDefault = "true" Content="Pay" Click="createNew" Background="SteelBlue" Width="91" Height="40" Canvas.Left="10" Canvas.Top="358" Foreground="Black" BorderBrush="Black"/>
 
         </StackPanel>
+        <Button IsDefault = "true" Content="K" Click="addK" Background="SteelBlue" Width="35" Height="24" Canvas.Left="484" Canvas.Top="160" Foreground="Black" BorderBrush="Black"/>
+
     </Canvas>
 </mah:MetroWindow>

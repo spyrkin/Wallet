@@ -25,6 +25,7 @@ namespace cwall
     {
         public List<Payment> payments;
         public List<Purpose> purposes;
+        public List<Payment> curPayments;
         public Purpose current;
 
         public DateTime date;
@@ -54,6 +55,8 @@ namespace cwall
             purposes = Purpose.LoadFromFile();
             payments = Payment.LoadFromFile();
             setCurrentPurlose();
+
+
             draw();
         }
 
@@ -62,8 +65,18 @@ namespace cwall
             lpurs.Text = current.Name;
             ldesc.Text = current.Description;
             lprice.Content = current.Price;
-            lost.Content = current.Price;
-            lpoc.Content = "100%";
+
+            double s = 0;
+            foreach (var p in curPayments)
+            {
+                s = s + p.Price;
+            }
+
+            double c = s * 100 / current.Price;
+            string proc = (c.ToString("#.##")).ToString() + " %";
+
+            lost.Content = current.Price - s;
+            lpoc.Content = proc;
 
         }
 
@@ -74,14 +87,24 @@ namespace cwall
             {
                 current = purposes.First();
             }
+
+            curPayments = payments.Where(o => o.purposeId == current.Id).ToList();
+
         }
 
 
         //заплатить
         private void addPayment(object sender, RoutedEventArgs e)
         {
-            var form = new PaymentForm(current);
+            var form = new PaymentForm(current, payments);
             form.ShowDialog();
+
+            if (form.DialogResult == true)
+            {
+                payments.Add(form.newPayment);
+                Payment.SaveToFile(payments);
+                reload();
+            }
         }
     }
 }

@@ -23,14 +23,32 @@ namespace cwall.Forms
     {
 
         public Purpose purpose;
+        public List<Payment> payments;
 
+        public Payment newPayment = null;
 
-        public PaymentForm(Purpose purpose)
+        public Random rand = new Random();
+
+        public PaymentForm(Purpose purpose, List<Payment> payments)
         {
             this.purpose = purpose;
+            this.payments = payments;
             InitializeComponent();
             UpdateUi();
 
+        }
+
+        public int getUniqId()
+        {
+            int r = rand.Next(10000);
+            var obj = payments.FirstOrDefault(o => o.Id == r);
+            if (obj != null)
+            {
+                MessageBox.Show("Фига себе " + r);
+                return getUniqId();
+            }
+
+            return r;
         }
 
         public void UpdateUi()
@@ -48,6 +66,15 @@ namespace cwall.Forms
             {
                 return;
             }
+
+            newPayment = new Payment();
+            newPayment.Id = getUniqId();
+            newPayment.purposeId = purpose.Id;
+            newPayment.Name = cname.Text;
+            newPayment.valute = purpose.valute;
+            newPayment.Price = Convert.ToDouble(cprice.Text);
+            newPayment.Date = DateTime.Now;
+            DialogResult = true;
         }
 
 
@@ -83,6 +110,12 @@ namespace cwall.Forms
             }
 
             return true;
+        }
+
+        private void addK(object sender, RoutedEventArgs e)
+        {
+            cname.Text = "кальян";
+            cprice.Text = "30";
         }
     }
 }

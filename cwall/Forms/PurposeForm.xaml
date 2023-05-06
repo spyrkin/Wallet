@@ -29,7 +29,7 @@
                 <ComboBoxItem HorizontalContentAlignment="Center" Content="LAR"></ComboBoxItem>
             </ComboBox>
 
-            <Button Margin="0 80 0 0" Content="create" Click="createNew" Background="SteelBlue" Width="91" Height="40" Canvas.Left="10" Canvas.Top="358" Foreground="Black" BorderBrush="Black"/>
+            <Button Margin="0 80 0 0" IsDefault = "true" Content="create" Click="createNew" Background="SteelBlue" Width="91" Height="40" Canvas.Left="10" Canvas.Top="358" Foreground="Black" BorderBrush="Black"/>
 
         </StackPanel>
     </Canvas>

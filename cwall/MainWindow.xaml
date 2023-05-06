@@ -15,8 +15,8 @@
         <Label x:Name="lost" Foreground="White"  IsEnabled="false"  Height="32" HorizontalContentAlignment="Left" Width="164" Canvas.Left="396" Canvas.Top="110" FontWeight="Bold"   />
         <Label x:Name="lpoc" Foreground="White"  IsEnabled="false"  Height="32" HorizontalContentAlignment="Center" Width="214" Canvas.Left="177" Canvas.Top="113" FontWeight="Bold"   />
 
-
+         
         <TextBox x:Name="ldesc" Foreground="White" Background="Black" Width="301" Canvas.Left="174" Canvas.Top="358"  Height="53" TextWrapping="Wrap"   AcceptsReturn="True" BorderThickness="0" />
-        <Button Content="pay" Click="addPayment" Background="LightGreen" Width="91" Height="40" Canvas.Left="493" Canvas.Top="358" Foreground="Black" BorderBrush="Black"/>
+        <Button Content="pay" IsDefault = "true" Focusable="True" Click="addPayment" Background="LightGreen" Width="91" Height="40" Canvas.Left="493" Canvas.Top="358" Foreground="Black" BorderBrush="Black"/>
     </Canvas>
 </mah:MetroWindow>

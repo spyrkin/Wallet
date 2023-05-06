@@ -15,11 +15,11 @@ namespace cwall.Models
     {
 
         public int Id { get; set; }
-        public string Type { get; set; }
+        public int purposeId { get; set; }
         public string valute { get; set; }
         public double Price { get; set; }
         public DateTime Date { get; set; }
-        public string Description { get; set; }
+        public string Name { get; set; }
         public static string _NAME = "pays";
         private static object lofile = new object();
 
