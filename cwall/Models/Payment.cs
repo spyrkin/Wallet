@@ -24,6 +24,15 @@ namespace cwall.Models
         private static object lofile = new object();
 
 
+
+        public string DateToString
+        {
+            get
+            {
+                return Date.ToString("yyy-MM-dd");
+            }
+        }
+
         public static String LogfileName()
         {
             String path = new System.IO.FileInfo(Assembly.GetEntryAssembly().Location).DirectoryName;

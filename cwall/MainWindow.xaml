@@ -15,8 +15,88 @@
         <Label x:Name="lost" Foreground="White"  IsEnabled="false"  Height="32" HorizontalContentAlignment="Left" Width="164" Canvas.Left="396" Canvas.Top="110" FontWeight="Bold"   />
         <Label x:Name="lpoc" Foreground="White"  IsEnabled="false"  Height="32" HorizontalContentAlignment="Center" Width="214" Canvas.Left="177" Canvas.Top="113" FontWeight="Bold"   />
 
-         
+
+        <ListView
+                x:Name="dataGridView"
+                HorizontalAlignment="Stretch"
+                BorderBrush="#FF25A0DA"
+                BorderThickness="1"
+                FontFamily="Microsoft Sans Serif"
+                FontSize="11"
+                Foreground="#FF000000"
+                IsTextSearchEnabled="False"
+                KeyboardNavigation.DirectionalNavigation="Cycle" Canvas.Left="112" Canvas.Top="150" Width="340" Height="175"
+
+                >
+            <ListView.ItemContainerStyle>
+                <Style TargetType="{x:Type ListViewItem}">
+                    <EventSetter Event="MouseEnter" Handler="lvi_MouseEnter" />
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding FlagSaved}" Value="true">
+                            <Setter Property="Foreground" Value="Black" />
+                            <Setter Property="Background" Value="LightGray" />
+                        </DataTrigger>
+
+                        <DataTrigger Binding="{Binding FlagUpdate}" Value="true">
+                            <Setter Property="Foreground" Value="Black" />
+                            <Setter Property="Background" Value="Gray" />
+                        </DataTrigger>
+
+                        <DataTrigger Binding="{Binding FlagGenerated}" Value="true">
+                            <Setter Property="Foreground" Value="DarkOliveGreen" />
+                            <Setter Property="Background" Value="White" />
+                        </DataTrigger>
+
+                        <DataTrigger Binding="{Binding isBallParse}" Value="true">
+                            <Setter Property="Foreground" Value="DarkGreen" />
+                            <Setter Property="Background" Value="White" />
+                        </DataTrigger>
+
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Foreground" Value="White" />
+                            <Setter Property="Background" Value="Blue" />
+                        </Trigger>
+                        <DataTrigger Binding="{Binding IsCritical}" Value="true">
+                            <Setter Property="Foreground" Value="White" />
+                            <Setter Property="Background" Value="Red" />
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding IsWarning}" Value="true">
+                            <Setter Property="Foreground" Value="Black" />
+                            <Setter Property="Background" Value="Yellow" />
+                        </DataTrigger>
+
+                        <DataTrigger Binding="{Binding FlagDel}" Value="true">
+                            <Setter Property="Foreground" Value="Gray" />
+                            <Setter Property="Background" Value="White" />
+                        </DataTrigger>
+                    </Style.Triggers>
+
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn
+                            Width="100"
+                            DisplayMemberBinding="{Binding DateToString}"
+                            Header="" />
+                    <GridViewColumn
+                            Width="170"
+                            DisplayMemberBinding="{Binding Name}"
+                            Header="" />
+
+                    <GridViewColumn
+                            Width="40"
+                            DisplayMemberBinding="{Binding Price}"
+                            Header="" />
+
+
+
+                </GridView>
+            </ListView.View>
+        </ListView>
+
         <TextBox x:Name="ldesc" Foreground="White" Background="Black" Width="301" Canvas.Left="174" Canvas.Top="358"  Height="53" TextWrapping="Wrap"   AcceptsReturn="True" BorderThickness="0" />
         <Button Content="pay" IsDefault = "true" Focusable="True" Click="addPayment" Background="LightGreen" Width="91" Height="40" Canvas.Left="493" Canvas.Top="358" Foreground="Black" BorderBrush="Black"/>
+
     </Canvas>
 </mah:MetroWindow>

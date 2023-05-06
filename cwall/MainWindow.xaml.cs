@@ -55,8 +55,6 @@ namespace cwall
             purposes = Purpose.LoadFromFile();
             payments = Payment.LoadFromFile();
             setCurrentPurlose();
-
-
             draw();
         }
 
@@ -78,6 +76,8 @@ namespace cwall
             lost.Content = current.Price - s;
             lpoc.Content = proc;
 
+            dataGridView.ItemsSource = curPayments;
+            dataGridView.Items.Refresh();
         }
 
         public void setCurrentPurlose()
@@ -88,7 +88,7 @@ namespace cwall
                 current = purposes.First();
             }
 
-            curPayments = payments.Where(o => o.purposeId == current.Id).ToList();
+            curPayments = payments.Where(o => o.purposeId == current.Id).OrderByDescending(o=>o.Date).ToList();
 
         }
 
@@ -105,6 +105,16 @@ namespace cwall
                 Payment.SaveToFile(payments);
                 reload();
             }
+        }
+
+        private void showList(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void lvi_MouseEnter(object sender, MouseEventArgs e)
+        {
+
         }
     }
 }
