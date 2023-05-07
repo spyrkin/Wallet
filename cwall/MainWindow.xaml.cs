@@ -72,7 +72,7 @@ namespace cwall
 
             double c = s * 100 / current.Price;
             string proc = (c.ToString("#.##")).ToString() + " %";
-
+            pg.Value = c;
             lost.Content = current.Price - s;
             lpoc.Content = proc;
 

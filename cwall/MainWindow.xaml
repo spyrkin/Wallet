@@ -6,14 +6,14 @@
         xmlns:local="clr-namespace:cwall"
         mc:Ignorable="d"
         xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
-        Title="Копилка" Height="450" Width="600" WindowStartupLocation="CenterScreen" Background="Black" ResizeMode="NoResize" WindowTitleBrush="Black" Icon="wallet_money_icon_231405.ico" >
+        Title="Копилка" Height="450" Width="565" WindowStartupLocation="CenterScreen" Background="Black" ResizeMode="NoResize" WindowTitleBrush="Black" Icon="wallet_money_icon_231405.ico" >
     <Canvas>
-        <Button Content="new purpose" Click="addNewPurpose" Background="White" Width="91" Height="40" Canvas.Left="10" Canvas.Top="358" Foreground="Black" BorderBrush="Black"/>
+        <Button Content="new purpose" Background="CadetBlue" Click="addNewPurpose"  Width="91" Height="40" Canvas.Left="10" Canvas.Top="358" Foreground="Black" BorderBrush="Black"/>
 
         <TextBox x:Name="lpurs" Width="219" Canvas.Left="174" Canvas.Top="82" Background="Black" HorizontalContentAlignment="Center" Foreground="White" FontWeight="Bold" />
         <Label x:Name="lprice" Foreground="White"  IsEnabled="false" Height="32"  Width="162" Canvas.Left="10" Canvas.Top="110" HorizontalContentAlignment="Right" FontWeight="Bold"  />
-        <Label x:Name="lost" Foreground="White"  IsEnabled="false"  Height="32" HorizontalContentAlignment="Left" Width="164" Canvas.Left="396" Canvas.Top="110" FontWeight="Bold"   />
-        <Label x:Name="lpoc" Foreground="White"  IsEnabled="false"  Height="32" HorizontalContentAlignment="Center" Width="214" Canvas.Left="177" Canvas.Top="113" FontWeight="Bold"   />
+        <Label x:Name="lost" Foreground="White"  IsEnabled="false" Padding="0"  Height="32" HorizontalContentAlignment="Left" Width="164" Canvas.Left="396" Canvas.Top="110" FontWeight="Bold"   />
+        <Label x:Name="lpoc" Foreground="White"  IsEnabled="false"  Height="32" HorizontalContentAlignment="Center" Width="214" Canvas.Left="177" Canvas.Top="110" FontWeight="Bold"   />
 
 
         <ListView
@@ -94,9 +94,9 @@
                 </GridView>
             </ListView.View>
         </ListView>
-
+        <mah:MetroProgressBar  x:Name="pg" Value="20.33" Foreground="CadetBlue"   Width="217" Canvas.Left="175" Canvas.Top="84" Height="22"/>
         <TextBox x:Name="ldesc" Foreground="White" Background="Black" Width="301" Canvas.Left="174" Canvas.Top="358"  Height="53" TextWrapping="Wrap"   AcceptsReturn="True" BorderThickness="0" />
-        <Button Content="pay" IsDefault = "true" Focusable="True" Click="addPayment" Background="LightGreen" Width="91" Height="40" Canvas.Left="493" Canvas.Top="358" Foreground="Black" BorderBrush="Black"/>
+        <Button Content="pay" IsDefault = "true" Focusable="True" Click="addPayment" Background="CadetBlue" Width="91" Height="40" Canvas.Left="460" Canvas.Top="358" Foreground="Black" BorderBrush="Black"/>
 
     </Canvas>
 </mah:MetroWindow>
