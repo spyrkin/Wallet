@@ -7,12 +7,17 @@
         mc:Ignorable="d"
         xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         Title="Копилка" Height="450" Width="565" WindowStartupLocation="CenterScreen" Background="Black" ResizeMode="NoResize" WindowTitleBrush="Black" Icon="wallet_money_icon_231405.ico" >
+    <Window.Resources>
+        <Style x:Key="myHeaderStyle" TargetType="{x:Type GridViewColumnHeader}">
+            <Setter Property="Visibility" Value="Collapsed" />
+        </Style>
+    </Window.Resources>
     <Canvas>
         <Button Content="new purpose" Background="CadetBlue" Click="addNewPurpose"  Width="91" Height="40" Canvas.Left="10" Canvas.Top="358" Foreground="Black" BorderBrush="Black"/>
 
         <TextBox x:Name="lpurs" Width="219" Canvas.Left="174" Canvas.Top="82" Background="Black" HorizontalContentAlignment="Center" Foreground="White" FontWeight="Bold" />
         <Label x:Name="lprice" Foreground="White"  IsEnabled="false" Height="32"  Width="162" Canvas.Left="10" Canvas.Top="110" HorizontalContentAlignment="Right" FontWeight="Bold"  />
-        <Label x:Name="lost" Foreground="White"  IsEnabled="false" Padding="0"  Height="32" HorizontalContentAlignment="Left" Width="164" Canvas.Left="396" Canvas.Top="110" FontWeight="Bold"   />
+        <Label x:Name="lost" Foreground="White"  IsEnabled="false" Padding="0"  Height="32" HorizontalContentAlignment="Left" Width="164" Canvas.Left="396" Canvas.Top="115" FontWeight="Bold"   />
         <Label x:Name="lpoc" Foreground="White"  IsEnabled="false"  Height="32" HorizontalContentAlignment="Center" Width="214" Canvas.Left="177" Canvas.Top="110" FontWeight="Bold"   />
 
 
@@ -25,7 +30,7 @@
                 FontSize="11"
                 Foreground="#FF000000"
                 IsTextSearchEnabled="False"
-                KeyboardNavigation.DirectionalNavigation="Cycle" Canvas.Left="112" Canvas.Top="150" Width="340" Height="175"
+                KeyboardNavigation.DirectionalNavigation="Cycle" Canvas.Left="112" Canvas.Top="142" Width="340" Height="211"
 
                 >
             <ListView.ItemContainerStyle>
@@ -74,7 +79,8 @@
                 </Style>
             </ListView.ItemContainerStyle>
             <ListView.View>
-                <GridView>
+                <GridView ColumnHeaderContainerStyle="{StaticResource myHeaderStyle}">
+
                     <GridViewColumn
                             Width="100"
                             DisplayMemberBinding="{Binding DateToString}"
