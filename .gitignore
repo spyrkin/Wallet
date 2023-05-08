@@ -346,6 +346,4 @@ ASALocalRun/
 /release/GeneralProperies.dll
 .vs
 /.vs
-
-
-
+!/release/db
