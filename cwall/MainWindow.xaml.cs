@@ -116,5 +116,15 @@ namespace cwall
         {
 
         }
+
+        private void onToolOpen(object sender, ToolTipEventArgs e)
+        {
+            double s = 0;
+            foreach (var p in curPayments)
+            {
+                s = s + p.Price;
+            }
+            pg.ToolTip = s;
+        }
     }
 }
