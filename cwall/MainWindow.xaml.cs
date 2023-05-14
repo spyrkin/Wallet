@@ -119,12 +119,28 @@ namespace cwall
 
         private void onToolOpen(object sender, ToolTipEventArgs e)
         {
+
+            string result = "";
             double s = 0;
             foreach (var p in curPayments)
             {
                 s = s + p.Price;
             }
-            pg.ToolTip = s;
+            var startPrice = curPayments.Last();
+            DateTime now = DateTime.Now;
+            var span = now - startPrice.Date;
+            double span_dayts = span.TotalDays;
+
+            double ave = s / span_dayts;
+
+            result = " "+s.ToString();
+            result = result +"\n average: " + ave.ToString("#.##");
+
+
+            double proc_days = current.Price / ave;
+            DateTime purposeday = startPrice.Date.AddDays(proc_days);
+            result = result + "\n think: : " + purposeday.ToString("yyyy-MM-dd");
+            pg.ToolTip = result;
         }
     }
 }
