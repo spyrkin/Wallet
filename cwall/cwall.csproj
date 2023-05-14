@@ -206,6 +206,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Capital.cs" />
     <Compile Include="Models\Payment.cs" />
     <Compile Include="Models\Purpose.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">

@@ -130,16 +130,15 @@ namespace cwall
             DateTime now = DateTime.Now;
             var span = now - startPrice.Date;
             double span_dayts = span.TotalDays;
-
             double ave = s / span_dayts;
-
-            result = " "+s.ToString();
-            result = result +"\n average: " + ave.ToString("#.##");
-
-
+            result = "Collect: "+s.ToString();
+            result = result +"\nAverage: " + ave.ToString("#.##");
             double proc_days = current.Price / ave;
             DateTime purposeday = startPrice.Date.AddDays(proc_days);
-            result = result + "\n think: : " + purposeday.ToString("yyyy-MM-dd");
+            result = result + "\nThink: : " + purposeday.ToString("yyyy-MM-dd");
+
+            var span2 = purposeday - now;
+            result = result + "\nOst Days: : " + (int)span2.TotalDays;
             pg.ToolTip = result;
         }
     }
