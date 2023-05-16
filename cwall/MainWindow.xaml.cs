@@ -70,6 +70,7 @@ namespace cwall
                 s = s + p.Price;
             }
 
+            lvalute.Content = getSimbol();
             double c = s * 100 / current.Price;
             string proc = (c.ToString("#.##")).ToString() + " %";
             pg.Value = c;
@@ -115,6 +116,15 @@ namespace cwall
         private void lvi_MouseEnter(object sender, MouseEventArgs e)
         {
 
+        }
+
+        private string getSimbol()
+        {
+            if (current!= null && current.valute == "LAR")
+            {
+                return "₾";
+            }
+            return "";
         }
 
         private void onToolOpen(object sender, ToolTipEventArgs e)

@@ -19,6 +19,7 @@
         <Label x:Name="lprice" Foreground="White"  IsEnabled="false" Height="32"  Width="162" Canvas.Left="10" Canvas.Top="59" HorizontalContentAlignment="Right" FontWeight="Bold"  />
         <Label x:Name="lost" Foreground="White"  IsEnabled="false"  Height="32" HorizontalContentAlignment="Left" Width="164" Canvas.Left="396" Canvas.Top="59" FontWeight="Bold"    />
         <Label x:Name="lpoc" Foreground="White"  IsEnabled="false"  Height="32" HorizontalContentAlignment="Center" Width="214" Canvas.Left="177" Canvas.Top="59" FontWeight="Bold"   />
+        <Label x:Name="lvalute" Foreground="White"  IsEnabled="false"  Height="42" FontSize="30" HorizontalContentAlignment="Center" Width="97" Canvas.Left="427" Canvas.Top="13" FontWeight="Bold" Content="₾"   />
 
 
         <ListView
