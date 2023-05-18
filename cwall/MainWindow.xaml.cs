@@ -129,7 +129,7 @@ namespace cwall
 
         private void onToolOpen(object sender, ToolTipEventArgs e)
         {
-
+            Button b = sender as Button;
             string result = "";
             double s = 0;
             foreach (var p in curPayments)
@@ -149,7 +149,7 @@ namespace cwall
 
             var span2 = purposeday - now;
             result = result + "\nOst Days: : " + (int)span2.TotalDays;
-            pg.ToolTip = result;
+            b.ToolTip = result;
         }
     }
 }

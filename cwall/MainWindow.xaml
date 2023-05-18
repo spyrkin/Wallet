@@ -19,7 +19,7 @@
         <Label x:Name="lprice" Foreground="White"  IsEnabled="false" Height="32"  Width="162" Canvas.Left="10" Canvas.Top="59" HorizontalContentAlignment="Right" FontWeight="Bold"  />
         <Label x:Name="lost" Foreground="White"  IsEnabled="false"  Height="32" HorizontalContentAlignment="Left" Width="164" Canvas.Left="396" Canvas.Top="59" FontWeight="Bold"    />
         <Label x:Name="lpoc" Foreground="White"  IsEnabled="false"  Height="32" HorizontalContentAlignment="Center" Width="214" Canvas.Left="177" Canvas.Top="59" FontWeight="Bold"   />
-        <Label x:Name="lvalute" Foreground="White"  IsEnabled="false"  Height="42" FontSize="30" HorizontalContentAlignment="Center" Width="97" Canvas.Left="427" Canvas.Top="13" FontWeight="Bold" Content="₾"   />
+        <Button x:Name="lvalute" ToolTip="" ToolTipOpening="onToolOpen"  Foreground="White" Background="Black" BorderThickness="0"   Height="44" FontSize="30" HorizontalContentAlignment="Center" Width="47" Canvas.Left="457" Canvas.Top="10" FontWeight="Bold" Content="₾"   />
 
 
         <ListView
@@ -101,7 +101,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <mah:MetroProgressBar ToolTip="" ToolTipOpening="onToolOpen"  x:Name="pg" Value="20.33" Foreground="CadetBlue"   Width="340" Canvas.Left="112" Canvas.Top="28" Height="22"/>
+        <mah:MetroProgressBar  x:Name="pg" Value="20.33" Foreground="CadetBlue"   Width="340" Canvas.Left="112" Canvas.Top="28" Height="22"/>
         <TextBox x:Name="ldesc" Foreground="White" Background="Black" Width="301" Canvas.Left="174" Canvas.Top="358"  Height="53" TextWrapping="Wrap"   AcceptsReturn="True" BorderThickness="0" />
         <Button Content="pay" IsDefault = "true" Focusable="True" Click="addPayment" Background="CadetBlue" Width="99" Height="40" Canvas.Left="452" Canvas.Top="358" Foreground="Black" BorderBrush="Black"/>
 
