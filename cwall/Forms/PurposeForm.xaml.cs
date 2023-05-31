@@ -23,6 +23,7 @@ namespace cwall.Forms
     {
         public List<Purpose> purposes;
         public Purpose newPurpose = null;
+        public Purpose editPurpose = null;
         public Random rand = new Random();
         //создание новой цели
         public PurposeForm(List<Purpose> purposes)
@@ -30,6 +31,47 @@ namespace cwall.Forms
             this.purposes = purposes;
             InitializeComponent();
         }
+
+
+        public PurposeForm(List<Purpose> purposes, Purpose editPurpose)
+        {
+            this.purposes = purposes;
+            this.editPurpose = editPurpose;
+            InitializeComponent();
+            cname.Text = editPurpose.Name;
+            cdesk.Text = editPurpose.Description;
+            cprice.Text = editPurpose.Price.ToString();
+            int index = 0;
+            string val = editPurpose.valute;
+            if (val == "RUB")
+            {
+                index = 0;
+            }
+
+            if (val == "DOL")
+            {
+                index = 1;
+            }
+
+
+            if (val == "EURO")
+            {
+                index = 2;
+            }
+
+
+            if (val == "LAR")
+            {
+                index = 3;
+            }
+
+            cur.SelectedIndex = index;
+
+
+
+        }
+
+
 
         private void createNew(object sender, RoutedEventArgs e)
         {
@@ -39,6 +81,15 @@ namespace cwall.Forms
                 return;
             }
 
+            if (editPurpose!= null)
+            {
+                editPurpose.Name = cname.Text;
+                editPurpose.Description = cdesk.Text;
+                editPurpose.valute = (cur.SelectedItem as ComboBoxItem).Content.ToString();
+                editPurpose.Price = Convert.ToDouble(cprice.Text);
+                DialogResult = true;
+                return;
+            }
             newPurpose = new Purpose();
             newPurpose.Id = getUniqId();
             newPurpose.Name = cname.Text;

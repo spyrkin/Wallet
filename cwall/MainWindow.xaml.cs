@@ -151,5 +151,16 @@ namespace cwall
             result = result + "\nOst Days: : " + (int)span2.TotalDays;
             b.ToolTip = result;
         }
+
+        private void editPurpose(object sender, RoutedEventArgs e)
+        {
+            var form = new PurposeForm(purposes, current);
+            form.ShowDialog();
+            if (form.DialogResult == true)
+            {
+                Purpose.SaveToFile(purposes);
+                reload();
+            }
+        }
     }
 }
