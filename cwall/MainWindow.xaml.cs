@@ -60,7 +60,7 @@ namespace cwall
 
         public void draw()
         {
-            lpurs.Text = current.Name;
+            lpurs.Content = current.Name;
             ldesc.Text = current.Description;
             lprice.Content = current.Price;
 
