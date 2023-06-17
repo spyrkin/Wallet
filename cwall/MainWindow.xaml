@@ -15,7 +15,7 @@
     <Canvas>
         <Button Content="new purpose" Background="CadetBlue" Click="addNewPurpose"  Width="102" Height="40" Canvas.Left="10" Canvas.Top="358" Foreground="Black" BorderBrush="Black"/>
 
-        <Label x:Name="lpurs" Width="340" Panel.ZIndex="100" Canvas.Left="112" Canvas.Top="26" Background="Transparent" HorizontalContentAlignment="Center" Foreground="White" FontWeight="Bold" HorizontalAlignment="Center" Height="24" VerticalAlignment="Top" />
+        <Label BorderThickness="1" BorderBrush="CadetBlue"  x:Name="lpurs" Width="342" Panel.ZIndex="100" Canvas.Left="111" Canvas.Top="26" Background="Transparent" HorizontalContentAlignment="Center" Foreground="White" FontWeight="Bold" HorizontalAlignment="Center" Height="24" VerticalAlignment="Center" />
         <Label x:Name="lprice" Foreground="White"  IsEnabled="false" Height="32"  Width="162" Canvas.Left="10" Canvas.Top="59" HorizontalContentAlignment="Right" FontWeight="Bold"  />
         <Label x:Name="lost" Foreground="White"  IsEnabled="false"  Height="32" HorizontalContentAlignment="Left" Width="164" Canvas.Left="396" Canvas.Top="59" FontWeight="Bold"    />
         <Label x:Name="lpoc" Foreground="White"  IsEnabled="false"  Height="32" HorizontalContentAlignment="Center" Width="214" Canvas.Left="177" Canvas.Top="59" FontWeight="Bold"   />
