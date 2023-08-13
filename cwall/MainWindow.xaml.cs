@@ -27,6 +27,7 @@ namespace cwall
         public List<Purpose> purposes;
         public List<Payment> curPayments;
         public Purpose current;
+        
 
         public DateTime date;
         public MainWindow()
@@ -52,10 +53,31 @@ namespace cwall
 
         public void reload()
         {
+            List<double> proc = new List<double>();
+            getRecursicProc(proc);
+            foreach (var item in proc)
+            {
+                Console.WriteLine(item);
+            }
             purposes = Purpose.LoadFromFile();
             payments = Payment.LoadFromFile();
             setCurrentPurlose();
             draw();
+        }
+
+        private void getRecursicProc(List<double> proc)
+        {
+
+            if (proc.Count == 5) return;
+            double _max = 100;
+            double _closest = 0;
+            if (proc.Count > 0)
+            {
+                _closest = proc.Last();
+            }
+            double _new = (_max + _closest) / 2;
+            proc.Add(_new);
+            getRecursicProc(proc);
         }
 
         public void draw()
