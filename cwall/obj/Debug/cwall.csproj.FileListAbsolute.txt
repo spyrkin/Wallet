@@ -137,7 +137,6 @@ C:\Users\Programmist\Desktop\cwall\cwall\obj\Debug\cwall.csprojAssemblyReference
 C:\Users\Programmist\Desktop\cwall\cwall\obj\Debug\Forms\PaymentForm.g.cs
 C:\Users\Programmist\Desktop\cwall\cwall\obj\Debug\Forms\PaymentForm.baml
 C:\PROG\cwall\cwall\obj\Debug\cwall.csproj.AssemblyReference.cache
-C:\PROG\cwall\cwall\obj\Debug\cwall.csproj.SuggestedBindingRedirects.cache
 C:\PROG\cwall\cwall\obj\Debug\Resources\Icons.baml
 C:\PROG\cwall\cwall\obj\Debug\Resources\IconsNonShared.baml
 C:\PROG\cwall\cwall\obj\Debug\Forms\PaymentForm.g.cs

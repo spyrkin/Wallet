@@ -61,6 +61,9 @@ namespace cwall
             }
             purposes = Purpose.LoadFromFile();
             payments = Payment.LoadFromFile();
+            purposes = purposes.OrderBy(o => o.Date).ToList();
+            payments = payments.OrderBy(o => o.Date).ToList();
+
             setCurrentPurlose();
             draw();
         }
@@ -93,8 +96,13 @@ namespace cwall
             }
 
             lvalute.Content = getSimbol();
+            if (s > current.Price)
+            {
+                s = current.Price;
+            }
             double c = s * 100 / current.Price;
             string proc = (c.ToString("#.##")).ToString() + " %";
+
             pg.Value = c;
             lost.Content = current.Price - s;
             lpoc.Content = proc;
@@ -108,7 +116,7 @@ namespace cwall
             purposes = purposes.OrderBy(o => o.Date).ToList();
             if (purposes.Count() > 0)
             {
-                current = purposes.First();
+                current = purposes.Last();
             }
 
             curPayments = payments.Where(o => o.purposeId == current.Id).OrderByDescending(o=>o.Date).ToList();
@@ -154,12 +162,26 @@ namespace cwall
             Button b = sender as Button;
             string result = "";
             double s = 0;
+
+            if (curPayments.Count == 0)
+            {
+                return;
+            }
             foreach (var p in curPayments)
             {
                 s = s + p.Price;
             }
+            if (s > current.Price)
+            {
+                s = current.Price;
+            }
+
             var startPrice = curPayments.Last();
             DateTime now = DateTime.Now;
+            if (s == current.Price)
+            {
+                now = curPayments[0].Date;
+            }
             var span = now - startPrice.Date;
             double span_dayts = span.TotalDays;
             double ave = s / span_dayts;
