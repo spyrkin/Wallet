@@ -159,3 +159,5 @@ C:\PROG\cwall\cwall\obj\Debug\cwall.Properties.Resources.resources
 C:\PROG\cwall\cwall\obj\Debug\cwall.csproj.GenerateResource.cache
 C:\PROG\cwall\cwall\obj\Debug\cwall.csproj.CoreCompileInputs.cache
 C:\PROG\cwall\cwall\obj\Debug\cwall.csproj.CopyComplete
+C:\PROG\cwall\cwall\obj\Debug\Forms\PurposeListWindow.g.cs
+C:\PROG\cwall\cwall\obj\Debug\Forms\PurposeListWindow.baml

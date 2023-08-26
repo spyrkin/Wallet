@@ -184,6 +184,8 @@ namespace cwall
             }
             var span = now - startPrice.Date;
             double span_dayts = span.TotalDays;
+
+            span_dayts = Math.Floor(span_dayts) + 1;
             double ave = s / span_dayts;
             result = "Collect: "+s.ToString();
             result = result +"\nAverage: " + ave.ToString("#.##");
@@ -192,7 +194,12 @@ namespace cwall
             result = result + "\nThink: : " + purposeday.ToString("yyyy-MM-dd");
 
             var span2 = purposeday - now;
-            result = result + "\nOst Days: : " + (int)span2.TotalDays;
+            int ost = (int)span2.TotalDays;
+            if (ost < 0)
+            {
+                ost = 0;
+            }
+            result = result + "\nOst Days: : " + ost;
             b.ToolTip = result;
         }
 
@@ -205,6 +212,12 @@ namespace cwall
                 Purpose.SaveToFile(purposes);
                 reload();
             }
+        }
+
+        private void onShowPurposes(object sender, MouseButtonEventArgs e)
+        {
+            var form = new PurposeListWindow();
+            form.ShowDialog();
         }
     }
 }

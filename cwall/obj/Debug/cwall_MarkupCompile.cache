@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\PROG\cwall\cwall\App.xaml
-5-1433662389
+6-895524346
 
-10-2026060769
+11-1497503528
 53742461565
-Forms\PaymentForm.xaml;Forms\PurposeForm.xaml;MainWindow.xaml;Resources\Icons.xaml;Resources\IconsNonShared.xaml;
+Forms\PaymentForm.xaml;Forms\PurposeForm.xaml;Forms\PurposeListWindow.xaml;MainWindow.xaml;Resources\Icons.xaml;Resources\IconsNonShared.xaml;
 
 False
 
