@@ -22,7 +22,17 @@ namespace cwall.Models
         public string Description { get; set; }
         public static string _NAME = "purposes";
 
+        public bool isCurrentPurpose { get; set; }
+
         private static object lofile = new object();
+
+        public string DateToString
+        {
+            get
+            {
+                return Date.ToString("yyy-MM-dd");
+            }
+        }
 
 
         public static String LogfileName()

@@ -1,4 +1,5 @@
-﻿using MahApps.Metro.Controls;
+﻿using cwall.Models;
+using MahApps.Metro.Controls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,9 +21,44 @@ namespace cwall.Forms
     /// </summary>
     public partial class PurposeListWindow : MetroWindow
     {
-        public PurposeListWindow()
+        List<Models.Purpose> purposes;
+
+        Models.Purpose purpose;
+        public PurposeListWindow(List<Models.Purpose> purposes)
         {
-           InitializeComponent();
+            purposes = purposes.OrderByDescending(o=>o.Date).ToList();
+            this.purposes = purposes;
+            InitializeComponent();
+            dataGridView.ItemsSource = purposes;
+            dataGridView.Items.Refresh();
+        }
+
+        private void lvi_MouseEnter(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void onKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key.ToString() == "Escape")
+            {
+                Close();
+            }
+        }
+
+        private void onDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var listpurposes = dataGridView.SelectedItems.Cast<Models.Purpose>().ToList();
+            if (listpurposes.Count != 1 ) {
+                return;
+            }
+            purpose = listpurposes[0];
+            foreach (var item in purposes)
+            {
+                item.isCurrentPurpose = false; ;
+            }
+            purpose.isCurrentPurpose = true;
+            DialogResult = true;
         }
     }
 }

@@ -116,7 +116,11 @@ namespace cwall
             purposes = purposes.OrderBy(o => o.Date).ToList();
             if (purposes.Count() > 0)
             {
-                current = purposes.Last();
+                current = purposes.FirstOrDefault(o=>o.isCurrentPurpose);
+                if (current == null)
+                {
+                    current = purposes.Last();
+                }
             }
 
             curPayments = payments.Where(o => o.purposeId == current.Id).OrderByDescending(o=>o.Date).ToList();
@@ -216,8 +220,14 @@ namespace cwall
 
         private void onShowPurposes(object sender, MouseButtonEventArgs e)
         {
-            var form = new PurposeListWindow();
+            var form = new PurposeListWindow(purposes);
             form.ShowDialog();
+
+            if (form.DialogResult == true)
+            {
+                Purpose.SaveToFile(purposes);
+                reload();
+            }
         }
     }
 }
