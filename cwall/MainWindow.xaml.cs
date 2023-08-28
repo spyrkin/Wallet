@@ -220,7 +220,7 @@ namespace cwall
 
         private void onShowPurposes(object sender, MouseButtonEventArgs e)
         {
-            var form = new PurposeListWindow(purposes);
+            var form = new PurposeListWindow(purposes, payments);
             form.ShowDialog();
 
             if (form.DialogResult == true)

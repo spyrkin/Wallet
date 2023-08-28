@@ -22,15 +22,37 @@ namespace cwall.Forms
     public partial class PurposeListWindow : MetroWindow
     {
         List<Models.Purpose> purposes;
+        List<Models.Payment> payments;
+
 
         Models.Purpose purpose;
-        public PurposeListWindow(List<Models.Purpose> purposes)
+        public PurposeListWindow(List<Models.Purpose> purposes, List<Models.Payment> payments)
         {
             purposes = purposes.OrderByDescending(o=>o.Date).ToList();
             this.purposes = purposes;
+            this.payments = payments;
             InitializeComponent();
             dataGridView.ItemsSource = purposes;
             dataGridView.Items.Refresh();
+            calc();
+
+            
+        }
+
+        public void calc()
+        {
+            double summ = 0;
+            foreach (var item in payments)
+            {
+                summ = summ + item.Price;
+            }
+            ltotal.Content = "Total: " + summ;
+
+            Payment first = payments[0];
+            var span = DateTime.Now - first.Date;
+            double span_dayts = span.TotalDays;
+            double ave = summ/span_dayts;
+            lave.Content = "Ave: " + ave.ToString("#.##");
         }
 
         private void lvi_MouseEnter(object sender, MouseEventArgs e)
