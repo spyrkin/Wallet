@@ -63,6 +63,12 @@ namespace cwall
             payments = Payment.LoadFromFile();
             purposes = purposes.OrderBy(o => o.Date).ToList();
             payments = payments.OrderBy(o => o.Date).ToList();
+            foreach (var item in purposes)
+            {
+                item.work(payments);
+            }
+
+
 
             setCurrentPurlose();
             draw();
@@ -193,7 +199,7 @@ namespace cwall
             double ave = s / span_dayts;
             result = "Collect: "+s.ToString();
             result = result +"\nAverage: " + ave.ToString("#.##");
-            double proc_days = current.Price / ave;
+            double proc_days = Math.Ceiling(current.Price / ave);
             DateTime purposeday = startPrice.Date.AddDays(proc_days);
             result = result + "\nThink: : " + purposeday.ToString("yyyy-MM-dd");
 

@@ -24,7 +24,10 @@ namespace cwall.Models
 
         public bool isCurrentPurpose { get; set; }
 
+
         private static object lofile = new object();
+
+
 
         public string DateToString
         {
@@ -32,6 +35,12 @@ namespace cwall.Models
             {
                 return Date.ToString("yyy-MM-dd");
             }
+        }
+
+
+        public void work(List<Payment> payments)
+        {
+
         }
 
 
