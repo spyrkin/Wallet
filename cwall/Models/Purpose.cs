@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ControlzEx.Standard;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -27,6 +28,24 @@ namespace cwall.Models
 
         private static object lofile = new object();
 
+        [NonSerialized()]
+        List<Payment> payments;
+
+
+
+        [NonSerialized()]
+        public double collect;
+
+        [NonSerialized()]
+        public string ave;
+
+
+        [NonSerialized()]
+        public string think;
+
+
+        [NonSerialized()]
+        public string ost;
 
 
         public string DateToString
@@ -40,7 +59,46 @@ namespace cwall.Models
 
         public void work(List<Payment> payments)
         {
+            this.payments = payments.Where(o => o.purposeId == Id).OrderByDescending(o=>o.Date).ToList();
+            double s = 0; //sum collected
+            foreach (var p in this.payments)
+            {
+                s = s + p.Price;
+            }
+            if (s > Price)
+            {
+                s = Price;
+            }
 
+            var startPrice = this.payments.Last();
+            DateTime now = DateTime.Now;
+            if (s == Price)
+            {
+                now = this.payments[0].Date;
+            }
+            var span = now - startPrice.Date;
+            double span_dayts = span.TotalDays;
+
+            span_dayts = Math.Floor(span_dayts) + 1;
+            double ave = s / span_dayts;
+            collect = s;
+            //result = "Collect: " + s.ToString();
+            this.ave = ave.ToString("#.##");
+            //result = result + "\nAverage: " + ave.ToString("#.##");
+            double proc_days = Math.Ceiling(Price / ave);
+            DateTime purposeday = startPrice.Date.AddDays(proc_days);
+            this.think = purposeday.ToString("yyyy-MM-dd");
+            //result = result + "\nThink: : " + purposeday.ToString("yyyy-MM-dd");
+
+            var span2 = purposeday - now;
+            int ost = (int)span2.TotalDays;
+            if (ost < 0)
+            {
+                ost = 0;
+            }
+            this.ost = ost.ToString();
+            //result = result + "\nOst Days: : " + ost;
+            //b.ToolTip = result;
         }
 
 

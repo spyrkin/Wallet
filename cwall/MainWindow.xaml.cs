@@ -177,39 +177,39 @@ namespace cwall
             {
                 return;
             }
-            foreach (var p in curPayments)
-            {
-                s = s + p.Price;
-            }
-            if (s > current.Price)
-            {
-                s = current.Price;
-            }
+            //foreach (var p in curPayments)
+            //{
+            //    s = s + p.Price;
+            //}
+            //if (s > current.Price)
+            //{
+            //    s = current.Price;
+            //}
 
-            var startPrice = curPayments.Last();
-            DateTime now = DateTime.Now;
-            if (s == current.Price)
-            {
-                now = curPayments[0].Date;
-            }
-            var span = now - startPrice.Date;
-            double span_dayts = span.TotalDays;
+            //var startPrice = curPayments.Last();
+            //DateTime now = DateTime.Now;
+            //if (s == current.Price)
+            //{
+            //    now = curPayments[0].Date;
+            //}
+            //var span = now - startPrice.Date;
+            //double span_dayts = span.TotalDays;
 
-            span_dayts = Math.Floor(span_dayts) + 1;
-            double ave = s / span_dayts;
-            result = "Collect: "+s.ToString();
-            result = result +"\nAverage: " + ave.ToString("#.##");
-            double proc_days = Math.Ceiling(current.Price / ave);
-            DateTime purposeday = startPrice.Date.AddDays(proc_days);
-            result = result + "\nThink: : " + purposeday.ToString("yyyy-MM-dd");
+            //span_dayts = Math.Floor(span_dayts) + 1;
+            //double ave = s / span_dayts;
+            result = "Collect: "+current.collect;
+            result = result +"\nAverage: " + current.ave;
+            //double proc_days = Math.Ceiling(current.Price / ave);
+            //DateTime purposeday = startPrice.Date.AddDays(proc_days);
+            result = result + "\nThink: : " + current.think;
 
-            var span2 = purposeday - now;
-            int ost = (int)span2.TotalDays;
-            if (ost < 0)
-            {
-                ost = 0;
-            }
-            result = result + "\nOst Days: : " + ost;
+            //var span2 = purposeday - now;
+            //int ost = (int)span2.TotalDays;
+            //if (ost < 0)
+            //{
+            //    ost = 0;
+            //}
+            result = result + "\nOst Days: : " + current.ost;
             b.ToolTip = result;
         }
 
