@@ -25,7 +25,7 @@
                 FontSize="11"
                 Foreground="#FF000000"
                 IsTextSearchEnabled="False"
-                KeyboardNavigation.DirectionalNavigation="Cycle" Canvas.Left="50" Canvas.Top="44" Width="500" Height="346" HorizontalAlignment="Left" VerticalAlignment="Top"
+                KeyboardNavigation.DirectionalNavigation="Cycle" Canvas.Left="10" Canvas.Top="44" Width="580" Height="346" HorizontalAlignment="Left" VerticalAlignment="Center"
                 MouseDoubleClick="onDoubleClick"
                 >
             <ListView.ItemContainerStyle>
@@ -90,10 +90,19 @@
                             DisplayMemberBinding="{Binding Price}"
                             Header="" />
 
+
                     <GridViewColumn
                             Width="250"
                             DisplayMemberBinding="{Binding Description}"
                             Header="" />
+
+                    <GridViewColumn
+                            Width="50"
+                            DisplayMemberBinding="{Binding ave}"
+                            Header="" />
+
+
+
 
 
 

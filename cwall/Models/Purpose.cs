@@ -36,8 +36,7 @@ namespace cwall.Models
         [NonSerialized()]
         public double collect;
 
-        [NonSerialized()]
-        public string ave;
+        public string ave { get; set; }
 
 
         [NonSerialized()]
