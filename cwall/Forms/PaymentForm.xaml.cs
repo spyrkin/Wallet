@@ -114,8 +114,8 @@ namespace cwall.Forms
 
         private void addK(object sender, RoutedEventArgs e)
         {
-            cname.Text = "кальян";
-            cprice.Text = "30";
+            cname.Text = Options.defaultName;
+            cprice.Text = Options.defaultPay.ToString();
         }
     }
 }

@@ -43,6 +43,7 @@ namespace cwall.Forms
             cprice.Text = editPurpose.Price.ToString();
             int index = 0;
             string val = editPurpose.valute;
+            val = val.Trim();
             if (val == "RUB")
             {
                 index = 0;
