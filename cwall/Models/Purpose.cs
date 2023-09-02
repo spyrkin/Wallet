@@ -68,6 +68,12 @@ namespace cwall.Models
             {
                 s = Price;
             }
+            if (this.payments.Count == 0)
+            {
+                return;
+            }
+
+
 
             var startPrice = this.payments.Last();
             DateTime now = DateTime.Now;
