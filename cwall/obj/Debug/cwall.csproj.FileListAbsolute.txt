@@ -161,3 +161,5 @@ C:\PROG\cwall\cwall\obj\Debug\cwall.csproj.CoreCompileInputs.cache
 C:\PROG\cwall\cwall\obj\Debug\cwall.csproj.CopyComplete
 C:\PROG\cwall\cwall\obj\Debug\Forms\PurposeListWindow.g.cs
 C:\PROG\cwall\cwall\obj\Debug\Forms\PurposeListWindow.baml
+C:\PROG\cwall\cwall\obj\Debug\Forms\CapitalForm.g.cs
+C:\PROG\cwall\cwall\obj\Debug\Forms\CapitalForm.baml

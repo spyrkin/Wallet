@@ -235,5 +235,11 @@ namespace cwall
                 reload();
             }
         }
+
+        private void openCapitalForm(object sender, RoutedEventArgs e)
+        {
+            var form = new CapitalForm();
+            form.ShowDialog();
+        }
     }
 }

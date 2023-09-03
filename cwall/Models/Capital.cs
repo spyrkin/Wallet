@@ -19,6 +19,9 @@ namespace cwall.Models
         public double euro { get; set; }
         public double lary { get; set; }
         public double rubl { get; set; }
+
+       
+
         public DateTime Date { get; set; }
         public string Name { get; set; }
         public static string _NAME = "capital";
