@@ -108,5 +108,11 @@
             </ListView.View>
         </ListView>
 
+        <StackPanel Orientation="Horizontal" Canvas.Top="340" Canvas.Left="100">
+            <TextBox x:Name="cprice" Background="LightYellow"  Width="291" HorizontalContentAlignment="Center" />
+            <Button Content="Add" Width="100" Margin="20 0 0 0" Click="onAddCapital" />
+
+        </StackPanel> 
+
     </Canvas>
 </mah:MetroWindow>

@@ -1,4 +1,5 @@
-﻿using MahApps.Metro.Controls;
+﻿using cwall.Models;
+using MahApps.Metro.Controls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Xml.Linq;
 
 namespace cwall.Forms
 {
@@ -41,6 +43,44 @@ namespace cwall.Forms
             {
                 Close();
             }
+        }
+
+        public bool validate()
+        {
+
+
+            string vpice = cprice.Text;
+            if (String.IsNullOrEmpty(vpice))
+            {
+                MessageBox.Show("Не пустой");
+                return false;
+
+            }
+
+            double number;
+            if (!Double.TryParse(vpice, out number))
+            {
+                MessageBox.Show("Платеж должна быть валидной");
+                return false;
+            }
+
+
+            return true;
+        }
+
+        private void onAddCapital(object sender, RoutedEventArgs e)
+        {
+            bool val = validate();
+            if (val == false)
+            {
+                return;
+            }
+
+            var capital = new Capital();
+            capital.Id = 100;
+            capital.lary = Convert.ToDouble(cprice.Text);
+            capital.Date = DateTime.Now;
+            //capital.Name = capital.Date.Month.ToString();   
         }
     }
 }
