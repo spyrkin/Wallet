@@ -20,6 +20,14 @@ namespace cwall.Models
         public double lary { get; set; }
         public double rubl { get; set; }
 
+
+        public bool isProfit {
+
+            get
+            {
+                return lary > 0;
+            }
+        }
        
 
         public DateTime Date { get; set; }

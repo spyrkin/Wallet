@@ -40,6 +40,16 @@ namespace cwall.Forms
             cprice.Text = "";
             capitals = Capital.LoadFromFile();
             capitals = capitals.OrderBy(o => o.Date).ToList();
+
+
+            double total = 0;
+            foreach (var item in capitals)
+            {
+                total = total + item.lary;
+            }
+            ltotal.Content = "Total: " + total;
+            dataGridView.ItemsSource = capitals;
+            dataGridView.Items.Refresh();
         }
 
         private void lvi_MouseEnter(object sender, MouseEventArgs e)

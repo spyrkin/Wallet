@@ -14,6 +14,7 @@
         </Style>
     </Window.Resources>
     <Canvas Background="Black">
+        <Label x:Name="ltotal" Content="Total: " Foreground="White" Canvas.Left="510" Canvas.Top="15" HorizontalAlignment="Left" VerticalAlignment="Center" />
 
         <ListView
                 x:Name="dataGridView"
@@ -30,8 +31,10 @@
                 <Style TargetType="{x:Type ListViewItem}">
                     <EventSetter Event="MouseEnter" Handler="lvi_MouseEnter" />
                     <Style.Triggers>
-                        <DataTrigger Binding="{Binding FlagSaved}" Value="true">
-                            <Setter Property="Foreground" Value="Black" />
+                        <DataTrigger Binding="{Binding isProfit}" Value="true">
+                            <Setter Property="FontWeight" Value="Bold" />
+
+                            <Setter Property="Foreground" Value="Green" />
                             <Setter Property="Background" Value="LightGray" />
                         </DataTrigger>
 
@@ -76,33 +79,12 @@
 
                     <GridViewColumn
                             Width="100"
-                            DisplayMemberBinding="{Binding DateToString}"
+                            DisplayMemberBinding="{Binding Name}"
                             Header="" />
                     <GridViewColumn
                             Width="100"
-                            DisplayMemberBinding="{Binding Name}"
+                            DisplayMemberBinding="{Binding lary}"
                             Header="" />
-
-                    <GridViewColumn
-                            Width="40"
-                            DisplayMemberBinding="{Binding Price}"
-                            Header="" />
-
-
-                    <GridViewColumn
-                            Width="250"
-                            DisplayMemberBinding="{Binding Description}"
-                            Header="" />
-
-                    <GridViewColumn
-                            Width="50"
-                            DisplayMemberBinding="{Binding ave}"
-                            Header="" />
-
-
-
-
-
 
                 </GridView>
             </ListView.View>
@@ -112,7 +94,7 @@
             <TextBox x:Name="cprice" Background="LightYellow"  Width="291" HorizontalContentAlignment="Center" />
             <Button Content="Add" Width="100" Margin="20 0 0 0" Click="onAddCapital" />
 
-        </StackPanel> 
+        </StackPanel>
 
     </Canvas>
 </mah:MetroWindow>
