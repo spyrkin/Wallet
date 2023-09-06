@@ -46,7 +46,7 @@ namespace cwall.Models
             return new System.IO.FileInfo(Assembly.GetEntryAssembly().Location).DirectoryName + @"\db";
         }
 
-        public static void SaveToFile(List<Payment> accounts)
+        public static void SaveToFile(List<Capital> accounts)
         {
             lock (lofile)
             {
@@ -80,7 +80,7 @@ namespace cwall.Models
         }
 
 
-        public static List<Payment> LoadFromFile()
+        public static List<Capital> LoadFromFile()
         {
             lock (lofile)
             {
@@ -88,7 +88,7 @@ namespace cwall.Models
 
 
                 if (!File.Exists(fn))
-                    return new List<Payment>();
+                    return new List<Capital>();
 
 
                 try
@@ -96,9 +96,9 @@ namespace cwall.Models
                     using (Stream serializationStream = new FileStream(fn, FileMode.Open, FileAccess.Read))
                     {
                         BinaryFormatter formatter = new BinaryFormatter();
-                        List<Payment> sav = (List<Payment>)formatter.Deserialize(serializationStream);
-                        List<Payment> res = new List<Payment>();
-                        foreach (Payment acc in sav)
+                        List<Capital> sav = (List<Capital>)formatter.Deserialize(serializationStream);
+                        List<Capital> res = new List<Capital>();
+                        foreach (Capital acc in sav)
                             if (acc != null)
                             {
 
@@ -111,7 +111,7 @@ namespace cwall.Models
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
-                    return new List<Payment>();
+                    return new List<Capital>();
                 }
             }
 

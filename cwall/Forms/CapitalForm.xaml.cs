@@ -1,4 +1,5 @@
 ﻿using cwall.Models;
+using MahApps.Metro.Behaviors;
 using MahApps.Metro.Controls;
 using System;
 using System.Collections.Generic;
@@ -22,9 +23,23 @@ namespace cwall.Forms
     /// </summary>
     public partial class CapitalForm : MetroWindow
     {
+
+        public List<Capital> capitals = new List<Capital>();
+        public Random rand = new Random();
+
         public CapitalForm()
         {
             InitializeComponent();
+            reload();
+
+
+        }
+
+        public void reload()
+        {
+            cprice.Text = "";
+            capitals = Capital.LoadFromFile();
+            capitals = capitals.OrderBy(o => o.Date).ToList();
         }
 
         private void lvi_MouseEnter(object sender, MouseEventArgs e)
@@ -68,6 +83,19 @@ namespace cwall.Forms
             return true;
         }
 
+        public int getUniqId()
+        {
+            int r = rand.Next(10000);
+            var obj = capitals.FirstOrDefault(o => o.Id == r);
+            if (obj != null)
+            {
+                MessageBox.Show("Фига себе " + r);
+                return getUniqId();
+            }
+
+            return r;
+        }
+
         private void onAddCapital(object sender, RoutedEventArgs e)
         {
             bool val = validate();
@@ -75,12 +103,21 @@ namespace cwall.Forms
             {
                 return;
             }
-
+            DateTime date = DateTime.Now;
             var capital = new Capital();
-            capital.Id = 100;
+            capital.Id = getUniqId();
             capital.lary = Convert.ToDouble(cprice.Text);
-            capital.Date = DateTime.Now;
-            //capital.Name = capital.Date.Month.ToString();   
+            capital.Date = date;
+
+            //get prev month
+            var today = date;
+            var month = new DateTime(today.Year, today.Month, 1);
+            var lastmonthday = month.AddMonths(-1);
+            string Name = lastmonthday.ToString("MMMM-yyyy");
+            capital.Name = Name;
+            capitals.Add(capital);
+            Capital.SaveToFile(capitals);
+            reload();
         }
     }
 }
