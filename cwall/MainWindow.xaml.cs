@@ -33,6 +33,11 @@ namespace cwall
         public MainWindow()
         {
             InitializeComponent();
+            DateTime gr = new DateTime(2023, 1, 11);
+            var timespan = DateTime.Now - gr;
+            var days = Math.Floor(timespan.TotalDays);
+            Console.WriteLine("!!!!!!!!!!");
+            Console.WriteLine(days);
             reload();
         }
 

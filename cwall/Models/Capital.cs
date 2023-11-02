@@ -13,6 +13,7 @@ namespace cwall.Models
     [Serializable()]
     public class Capital
     {
+        public static double KD1 = 2.72;
 
         public int Id { get; set; }
         public double dollar { get; set; }
@@ -21,11 +22,24 @@ namespace cwall.Models
         public double rubl { get; set; }
 
 
+        public double Summ
+        {
+            get
+            {
+                return lary + dollar * KD1;
+            }
+            set
+            {
+
+            }
+        }
+
+
         public bool isProfit {
 
             get
             {
-                return lary > 0;
+                return Summ > 0;
             }
         }
        

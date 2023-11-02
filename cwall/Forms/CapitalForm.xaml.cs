@@ -37,15 +37,17 @@ namespace cwall.Forms
 
         public void reload()
         {
-            cprice.Text = "";
+            cprice1.Text = "";
+            cprice2.Text = "";
+
             capitals = Capital.LoadFromFile();
-            capitals = capitals.OrderBy(o => o.Date).ToList();
+            capitals = capitals.OrderByDescending(o => o.Date).ToList();
 
 
             double total = 0;
             foreach (var item in capitals)
             {
-                total = total + item.lary;
+                total = total + item.Summ;
             }
             ltotal.Content = "Total: " + total;
             dataGridView.ItemsSource = capitals;
@@ -74,16 +76,30 @@ namespace cwall.Forms
         {
 
 
-            string vpice = cprice.Text;
+            string vpice = cprice1.Text;
+            string vpice2 = cprice2.Text;
+
             if (String.IsNullOrEmpty(vpice))
             {
-                MessageBox.Show("Не пустой");
-                return false;
+                vpice = "0";
+
+            }
+
+            if (String.IsNullOrEmpty(vpice2))
+            {
+                vpice2 = "0";
 
             }
 
             double number;
             if (!Double.TryParse(vpice, out number))
+            {
+                MessageBox.Show("Платеж должна быть валидной");
+                return false;
+            }
+
+            double number2;
+            if (!Double.TryParse(vpice2, out number2))
             {
                 MessageBox.Show("Платеж должна быть валидной");
                 return false;
@@ -116,7 +132,9 @@ namespace cwall.Forms
             DateTime date = DateTime.Now;
             var capital = new Capital();
             capital.Id = getUniqId();
-            capital.lary = Convert.ToDouble(cprice.Text);
+            capital.lary = Convert.ToDouble(cprice1.Text);
+            capital.dollar = Convert.ToDouble(cprice2.Text);
+
             capital.Date = date;
 
             //get prev month
