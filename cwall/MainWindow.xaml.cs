@@ -202,7 +202,7 @@ namespace cwall
 
             //span_dayts = Math.Floor(span_dayts) + 1;
             //double ave = s / span_dayts;
-            result = "Collect: "+current.collect;
+            result = "Collect: "+current.collect + " (" + Math.Floor(current.collect/K.dollar) +") ";
             result = result +"\nAverage: " + current.ave;
             //double proc_days = Math.Ceiling(current.Price / ave);
             //DateTime purposeday = startPrice.Date.AddDays(proc_days);

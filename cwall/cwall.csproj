@@ -221,6 +221,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Capital.cs" />
+    <Compile Include="Models\K.cs" />
     <Compile Include="Models\Options.cs" />
     <Compile Include="Models\Payment.cs" />
     <Compile Include="Models\Purpose.cs" />
