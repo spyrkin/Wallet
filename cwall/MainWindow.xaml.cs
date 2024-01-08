@@ -214,7 +214,7 @@ namespace cwall
             //{
             //    ost = 0;
             //}
-            result = result + "\nOst Days: : " + current.ost;
+            result = result + "\nOst Days: " + current.ost;
             b.ToolTip = result;
         }
 

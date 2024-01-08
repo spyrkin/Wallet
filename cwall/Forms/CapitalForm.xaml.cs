@@ -82,12 +82,15 @@ namespace cwall.Forms
             if (String.IsNullOrEmpty(vpice))
             {
                 vpice = "0";
+                cprice1.Text = "0";
 
             }
 
             if (String.IsNullOrEmpty(vpice2))
             {
                 vpice2 = "0";
+                cprice2.Text = "0";
+
 
             }
 

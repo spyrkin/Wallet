@@ -52,7 +52,6 @@
                     <EventSetter Event="MouseEnter" Handler="lvi_MouseEnter" />
                     <Style.Triggers>
                         <DataTrigger Binding="{Binding isProfit}" Value="true">
-                            <Setter Property="FontWeight" Value="Bold" />
 
                             <Setter Property="Foreground" Value="Green" />
                             <Setter Property="Background" Value="White" />

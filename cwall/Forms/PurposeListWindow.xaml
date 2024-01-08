@@ -86,7 +86,7 @@
                             Header="" />
 
                     <GridViewColumn
-                            Width="40"
+                            Width="60"
                             DisplayMemberBinding="{Binding Price}"
                             Header="" />
 
